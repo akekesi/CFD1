@@ -23,8 +23,8 @@ N_xi = 30;
 N_eta = 25;
 xi_end = 2*pi;
 eta_end = 2*pi;
-h_xi = xi_end/(N_xi-1);     % N_xi diskrete Werte mit 0?
-h_eta = eta_end/(N_eta-1);  % N_eta diskrete Werte mit 0?
+h_xi = xi_end/(N_xi-1);
+h_eta = eta_end/(N_eta-1);
 xi = (0:h_xi:xi_end);       % xi = linspace(0,2*pi,N_xi);
 eta = (0:h_eta:eta_end);    % eta = linspace(0,2*pi,N_eta);
 [XI,ETA] = meshgrid(xi,eta);
@@ -87,6 +87,7 @@ title({'Lokale Basis','Gitter-1'},'FontSize',16,'FontWeight','normal')
 legend([p1,p2],["e_{\xi}","e_{\eta}"],'location','NorthEast')
 xlabel('x')
 ylabel('y')
+colormap jet
 daspect([1 1 1])
 
 subplot(2,2,3)
@@ -98,6 +99,7 @@ title({'Lokale Basis','Gitter-2'},'FontSize',16,'FontWeight','normal')
 legend([p1,p2],["e_{\xi}","e_{\eta}"],'location','NorthEast')
 xlabel('x')
 ylabel('y')
+colormap jet
 daspect([1 1 1])
 
 subplot(2,2,2)
@@ -106,6 +108,7 @@ title({'Nichtdiagonalelemente des Metriktensors','Gitter-1'},'FontSize',16,'Font
 xlabel('x')
 ylabel('y')
 colorbar
+colormap jet
 caxis([-1 1])
 daspect([1 1 1])
 
@@ -115,6 +118,7 @@ title({'Nichtdiagonalelemente des Metriktensors','Gitter-2'},'FontSize',16,'Font
 xlabel('x')
 ylabel('y')
 colorbar
+colormap jet
 caxis([-1 1])
 daspect([1 1 1])
 
@@ -125,6 +129,7 @@ title('f = sin(x)','FontSize',16,'FontWeight','normal')
 xlabel('x')
 ylabel('y')
 colorbar
+colormap jet
 caxis([-1 1])
 daspect([1 1 1])
 
@@ -134,6 +139,7 @@ title('df/dx num.','FontSize',16,'FontWeight','normal')
 xlabel('x')
 ylabel('y')
 colorbar
+colormap jet
 caxis([-1 1])
 daspect([1 1 1])
 
@@ -143,6 +149,7 @@ title('df/dy num.','FontSize',16,'FontWeight','normal')
 xlabel('x')
 ylabel('y')
 colorbar
+colormap jet
 %caxis([-0.01 0.01])
 daspect([1 1 1])
 
@@ -152,6 +159,7 @@ title('df/dx ana.','FontSize',16,'FontWeight','normal')
 xlabel('x')
 ylabel('y')
 colorbar
+colormap jet
 caxis([-1 1])
 daspect([1 1 1])
 
@@ -161,6 +169,7 @@ title('df/dy ana.','FontSize',16,'FontWeight','normal')
 xlabel('x')
 ylabel('y')
 colorbar
+colormap jet
 caxis([-0.01 0.01])
 daspect([1 1 1])
 
@@ -170,15 +179,17 @@ title('df/dx num. - df/dx ana.','FontSize',16,'FontWeight','normal')
 xlabel('x')
 ylabel('y')
 colorbar
+colormap jet
 %caxis([-1 1])
 daspect([1 1 1])
 
 subplot(2,4,8)
 pcolor(X1,Y1,dy_f_num-dy_f_ana)
-title('df/dy num. - df/dx ana.','FontSize',16,'FontWeight','normal')
+title('df/dy num. - df/dy ana.','FontSize',16,'FontWeight','normal')
 xlabel('x')
 ylabel('y')
 colorbar
+colormap jet
 %caxis([-1 1])
 daspect([1 1 1])
 
