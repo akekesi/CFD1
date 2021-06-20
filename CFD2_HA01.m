@@ -217,7 +217,7 @@ function F_eta = D_eta(F)
 global params
 D_kron_eta = params.D_kron_eta;
 [n,m] = size(F);
-F = reshape(F',n*m,1);
+F = reshape(F.',n*m,1);
 F_eta = D_kron_eta*F;
 F_eta = reshape(F_eta,m,n)';
 end
