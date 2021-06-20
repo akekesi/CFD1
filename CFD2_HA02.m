@@ -24,15 +24,14 @@ N_xi = 100;                     % ??? Wenn es klein ist --> nicht schoen :) ???
 N_eta = 55;                     % ??? Wenn es klein ist --> nicht schoen :) ???
 xi_end = 2*pi;
 eta_end = 2*pi;
-h_xi = xi_end/(N_xi-1);         % fuer Ableitungsmatrix
-h_eta = eta_end/(N_eta-1);      % fuer Ableitungsmatrix
+h_xi = xi_end/(N_xi);         % fuer Ableitungsmatrix
+h_eta = eta_end/(N_eta);      % fuer Ableitungsmatrix
 
 xi = (1:N_xi)*2*pi/N_xi;
 eta = (1:N_eta)*2*pi/N_eta;
 
 x = @(xi,eta) xi-alpha*sin(xi-eta);
 y = @(xi,eta) eta-alpha*sin(xi-eta);
-length(eta)
 
 params.u = 1;
 params.v = 1;
@@ -44,7 +43,6 @@ N = 150;     % Anzahl der Zeitschritte
 [XI,ETA] = meshgrid(xi,eta);
 X = x(XI,ETA);
 Y = y(XI,ETA);
-Z = zeros(size(XI));
 
 %params.u = u.*ones(size(X));    % ??? es ist jetzt nicht noetig, da u ueberall gleich ist ???
 %params.v = v.*ones(size(X));    % ??? es ist jetzt nicht noetig, da v ueberall gleich ist ???
