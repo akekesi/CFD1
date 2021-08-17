@@ -19,14 +19,14 @@ clf
 %% Anfangswerte, Konstante
 global params
 alpha = 0.3;
-N_xi = 30;
-N_eta = 25;
+N_xi = 30;                  % so viele Punkte incl. 0 und xi_end
+N_eta = 25;                 % so viele Punkte incl. 0 und eta_end
 xi_end = 2*pi;
 eta_end = 2*pi;
 h_xi = xi_end/(N_xi-1);
 h_eta = eta_end/(N_eta-1);
-xi = (0:h_xi:xi_end);       % xi = linspace(0,2*pi,N_xi);
-eta = (0:h_eta:eta_end);    % eta = linspace(0,2*pi,N_eta);
+xi = (0:h_xi:xi_end);       % xi = linspace(0,xi_end,N_xi);
+eta = (0:h_eta:eta_end);    % eta = linspace(0,eta_end,N_eta);
 [XI,ETA] = meshgrid(xi,eta);
 
 x1 = @(xi,eta) xi + alpha * sin(xi + eta);
@@ -208,7 +208,7 @@ function F_xi = D_xi(F)
 global params
 D_kron_xi = params.D_kron_xi;
 [n,m] = size(F);
-F = reshape(F.',n*m,1);
+F = reshape(F.',n*m,1);     % ".'" <-- zeilenweise reshape
 F_xi = D_kron_xi*F;
 F_xi = reshape(F_xi,m,n)';
 end
@@ -217,7 +217,7 @@ function F_eta = D_eta(F)
 global params
 D_kron_eta = params.D_kron_eta;
 [n,m] = size(F);
-F = reshape(F.',n*m,1);
+F = reshape(F.',n*m,1);     % ".'" <-- zeilenweise reshape
 F_eta = D_kron_eta*F;
 F_eta = reshape(F_eta,m,n)';
 end
